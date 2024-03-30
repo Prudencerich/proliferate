@@ -30,9 +30,10 @@ const Monday = () => {
     const { session, updateSession } = useContext(UseSessionContext)
     useEffect(() => {
         useMyClasses().then((data) => {
+            console.log(data,'class')
             setClassdata(data)
         })
-    })
+    }, [classData])
   
 
     const handleJoinNow = () => {
@@ -101,10 +102,11 @@ const Monday = () => {
         closeModal();
     };
 
-    const filteredClasses = classdata.filter((item) => {
-        const lowerCaseSearchQuery = searchQuery.toLowerCase();
-        return item.subject.toLowerCase().includes(lowerCaseSearchQuery);
-    });
+    const filteredClasses = []
+    // ?.filter((item) => {
+    //     const lowerCaseSearchQuery = searchQuery?.toLowerCase();
+    //     return item?.subject?.toLowerCase()?.includes(lowerCaseSearchQuery);
+    // });
 
 
     return (
